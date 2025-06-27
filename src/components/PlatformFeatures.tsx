@@ -1,136 +1,97 @@
 
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { 
-  Trophy, 
-  Users, 
-  Calendar, 
-  BarChart3, 
-  FileText, 
-  Camera,
-  Shield,
-  Globe,
-  Smartphone
-} from 'lucide-react';
+import { Trophy, Users, Calendar, BarChart3, User, Newspaper, Star, Settings } from 'lucide-react';
 
 const PlatformFeatures = () => {
   const features = [
     {
       icon: Trophy,
       title: 'League Management',
-      description: 'Complete league administration tools for managing seasons, divisions, and competitions with ease.',
-      color: 'text-kenya-gold-500'
+      description: 'Create and manage basketball leagues with comprehensive admin tools',
+      color: 'bg-blue-50 text-blue-600',
     },
     {
       icon: Users,
-      title: 'Team & Player Registration',
-      description: 'Streamlined registration process for teams and players with digital roster management.',
-      color: 'text-blue-500'
+      title: 'Team Registration',
+      description: 'Easy team and player registration with roster management',
+      color: 'bg-green-50 text-green-600',
     },
     {
       icon: Calendar,
-      title: 'Fixture Scheduling',
-      description: 'Advanced scheduling system that handles complex fixture arrangements and venue management.',
-      color: 'text-green-500'
+      title: 'Fixtures & Scheduling',
+      description: 'Automated fixture generation and match scheduling system',
+      color: 'bg-orange-50 text-orange-600',
     },
     {
       icon: BarChart3,
-      title: 'Live Scores & Statistics',
-      description: 'Real-time score updates and comprehensive statistics tracking for players and teams.',
-      color: 'text-kenya-blue-500'
+      title: 'Live Scores & Stats',
+      description: 'Real-time score updates and comprehensive statistics tracking',
+      color: 'bg-purple-50 text-purple-600',
     },
     {
-      icon: FileText,
-      title: 'News & Announcements',
-      description: 'Built-in content management system for league news, announcements, and updates.',
-      color: 'text-purple-500'
+      icon: User,
+      title: 'Officials Management',
+      description: 'Manage referees, scorekeepers and other game officials',
+      color: 'bg-red-50 text-red-600',
     },
     {
-      icon: Camera,
-      title: 'Media Management',
-      description: 'Upload and manage team logos, player photos, and sponsor banners with ease.',
-      color: 'text-red-500'
+      icon: Newspaper,
+      title: 'News & Updates',
+      description: 'Share league news, announcements and match reports',
+      color: 'bg-cyan-50 text-cyan-600',
     },
     {
-      icon: Shield,
-      title: 'Secure Authentication',
-      description: 'Role-based access control ensuring data security and proper user permissions.',
-      color: 'text-gray-600'
+      icon: Star,
+      title: 'Standings & Rankings',
+      description: 'Automatic league tables and team performance rankings',
+      color: 'bg-yellow-50 text-yellow-600',
     },
     {
-      icon: Globe,
-      title: 'Public League Pages',
-      description: 'Beautiful public-facing pages for each league with all essential information.',
-      color: 'text-indigo-500'
+      icon: Settings,
+      title: 'Admin Dashboard',
+      description: 'Comprehensive control panel for league administrators',
+      color: 'bg-gray-50 text-gray-600',
     },
-    {
-      icon: Smartphone,
-      title: 'Mobile Responsive',
-      description: 'Fully responsive design that works perfectly on all devices and screen sizes.',
-      color: 'text-pink-500'
-    }
   ];
 
   return (
-    <section id="features" className="py-20 bg-gray-50">
+    <section id="features" className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl font-bold text-kenya-blue-800 mb-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Platform Features
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Everything you need to manage and showcase your basketball league professionally. 
-            From registration to championships, we've got you covered.
+            Everything you need to run professional basketball leagues in Kenya
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => {
-            const IconComponent = feature.icon;
+            const Icon = feature.icon;
             return (
-              <Card 
+              <div
                 key={index}
-                className="border-0 shadow-lg card-hover animate-fade-in bg-white"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 card-hover"
               >
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className={`p-3 rounded-lg bg-gray-50 ${feature.color}`}>
-                      <IconComponent className="h-6 w-6" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-bold text-gray-900 mb-2">
-                        {feature.title}
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                <div className={`w-12 h-12 rounded-lg ${feature.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <Icon className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
             );
           })}
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-kenya-blue-600 to-kenya-blue-700 rounded-2xl p-8 md:p-12 text-white">
-            <h3 className="text-3xl font-bold mb-4">
-              Ready to Transform Your League?
-            </h3>
-            <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-              Join hundreds of leagues across Kenya who trust our platform to manage their competitions professionally.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-kenya-gold-500 hover:bg-kenya-gold-600 text-white font-semibold px-8 py-3 rounded-lg transition-colors">
-                Start Free Trial
-              </button>
-              <button className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold px-8 py-3 rounded-lg transition-colors">
-                Schedule Demo
-              </button>
-            </div>
-          </div>
+        <div className="text-center mt-12">
+          <button className="bg-gradient-to-r from-kenya-blue-600 to-kenya-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:from-kenya-blue-700 hover:to-kenya-blue-800 transition-all duration-300 transform hover:scale-105">
+            Get Started Today
+          </button>
         </div>
       </div>
     </section>
